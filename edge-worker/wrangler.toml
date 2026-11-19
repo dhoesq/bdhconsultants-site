@@ -1,0 +1,19 @@
+name = "site-compliance-edge"
+main = "worker.mjs"
+compatibility_date = "2026-10-01"
+account_id = "e5ea8bb96c602e98a4bfe76eff3403ba" # DH-Kaizen only
+
+# enviRŌNment's favicon, share image, and 404 page come from the existing
+# environment-site-essentials Worker through this service binding.
+services = [
+  { binding = "ESSENTIALS", service = "environment-site-essentials" },
+]
+
+# Live since November 13, 2026, on Don's yes.
+# www.environmentlending.com has no route: a redirect rule sends it to the apex.
+# environmentlending.com/robots.txt and /sitemap.xml stay on environment-seo-discovery-v1.
+routes = [
+  { pattern = "bdhconsultants.com/*", zone_name = "bdhconsultants.com" },
+  { pattern = "www.bdhconsultants.com/*", zone_name = "bdhconsultants.com" },
+  { pattern = "environmentlending.com/*", zone_name = "environmentlending.com" },
+]
